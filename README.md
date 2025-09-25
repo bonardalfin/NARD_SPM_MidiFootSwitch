@@ -1,6 +1,9 @@
 # MIDIFootSwitchSPM
 NARD SPM - Midi Footswitch Controller for Sonicake Pocket Master
 
+![alt text](https://github.com/bonardalfin/MIDIFootSwitchSPM/blob/main/img/image.jpg?raw=true)
+
+
 You can see my Project on here : https://bonardalfinproject.blogspot.com/2025/09/nard-spm-midi-footswitch-controller-for.html
 
 Features:
