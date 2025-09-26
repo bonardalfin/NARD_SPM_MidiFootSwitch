@@ -357,14 +357,14 @@ void updateLooperLEDs() {
 void handleModeButton(){
   int modeButtonIndex = 8; // BTN9
 
-  // Deteksi press
+  // Press detection
   if(isButtonJustPressed(modeButtonIndex)){
     btnState[modeButtonIndex].pressed = true;
     btnState[modeButtonIndex].pressTime = millis();
     btnState[modeButtonIndex].longPressTriggered = false;
   }
 
-  // Cek long press SAAT MASIH DITEKAN
+  // Check long press WHILE STILL PRESSED
   if(btnState[modeButtonIndex].pressed && !btnState[modeButtonIndex].longPressTriggered){
     unsigned long duration = millis() - btnState[modeButtonIndex].pressTime;
     if(duration >= LONG_PRESS_TIME){
@@ -511,4 +511,5 @@ void handlePots() {
     }
   }
 }
+
 
