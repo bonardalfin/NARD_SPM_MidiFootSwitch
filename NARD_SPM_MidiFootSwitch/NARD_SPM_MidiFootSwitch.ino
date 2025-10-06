@@ -75,12 +75,12 @@ BtnState btnState[9];
 // ------------------------- MODE B EFFECT STATES -------------------------
 bool effectStates[8] = {false,false,false,false,false,false,false,false};
 
-// Array untuk CC numbers di Mode B Effect
+// Array for CC numbers in Mode B Effect
 const uint8_t effectCCNumbers[8] = {43, 44, 45, 48, 49, 50, 51, 58};
 const char* effectNames[8] = {"NR", "FX1", "DRV", "EQ", "FX2", "DLY", "RVB", "TUNER"};
 
 // ------------------------- MODE A PRESET ARRAYS -------------------------
-// Preset values untuk setiap bank (8 banks, 8 presets each)
+// Preset values ​​for each bank (8 banks, 8 presets each)
 const uint8_t presetValues[8][8] = {
   {1, 2, 3, 4, 5, 6, 7, 8},          // Bank 1: values 1-8
   {9, 10, 11, 12, 13, 14, 15, 16},   // Bank 2: values 9-16  
@@ -235,14 +235,14 @@ void debounceButtons() {
     int col = buttonMapping[i][1];
     bool rawState = buttonMatrix[row][col];
     
-    // Jika raw state berubah, reset timer debounce
+    // If the raw state changes, reset the debounce timer.
     if (rawState != btnState[i].lastRawState) {
       btnState[i].lastDebounceTime = millis();
     }
     
-    // Jika sudah melewati delay debounce, update state
+    // If it has passed the debounce delay, update the state.
     if ((millis() - btnState[i].lastDebounceTime) > DEBOUNCE_DELAY) {
-      // Update previous state sebelum mengubah current state
+      // Update previous state before changing current state
       btnState[i].prevDebouncedState = btnState[i].debouncedState;
       btnState[i].debouncedState = rawState;
     }
@@ -382,7 +382,7 @@ void handleModeButton(){
   // Release handling - only for short press
   if(isButtonJustReleased(modeButtonIndex)){
     if(btnState[modeButtonIndex].pressed && !btnState[modeButtonIndex].longPressTriggered){
-      // Short press → toggle antara Mode A dan B (TIDAK termasuk Mode C)
+      // Short press → toggle between Mode A and B (NOT including Mode C)
       if(currentMode == MODE_A_PRESET){
         switchToModeB();
       } else if(currentMode == MODE_B_EFFECT){
@@ -511,5 +511,6 @@ void handlePots() {
     }
   }
 }
+
 
 
